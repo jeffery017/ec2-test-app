@@ -20,4 +20,4 @@ RUN apt-get update && \
 EXPOSE 8000
 
 # Step 4: Set the command to run the application
-CMD ["uvicorn", "--bind", "0.0.0.0:8000", "run:app"]
+CMD ["gunicorn", "--bind", "0.0.0.0:8000", "run:app"]
