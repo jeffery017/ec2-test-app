@@ -16,6 +16,6 @@ RUN apt-get update && \
 RUN pip install -r requirements.txt
 
 # Step 6: Expose port 8000
-EXPOSE 8000
+EXPOSE 8010
 
 CMD ["python3", "app.py"]
