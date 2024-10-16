@@ -1,5 +1,5 @@
 # Step 1: Use an official Ubuntu runtime as a base image
-FROM python:3.10-slim
+FROM ubuntu:latest
 
 WORKDIR /app
 
@@ -12,7 +12,7 @@ RUN apt-get update && \
 # Step 5: Install virtual environment and dependencies
 RUN pip install -r requirements.txt
 
-# Step 6: Expose port 8010
+# Step 6: Expose port 8000
 EXPOSE 8000
 
 CMD ["/gunicorn", "--bind", "0.0.0.0:8000", "run:app"]
