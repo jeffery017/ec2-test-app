@@ -20,4 +20,4 @@ RUN apt-get update && \
 EXPOSE 8000
 
 # Step 4: Use the full path to gunicorn if necessary
-CMD ["python", "-m", "gunicorn", "--bind", "0.0.0.0:8000", "run:app"]
+CMD ["gunicorn"  , "-b", "0.0.0.0:8000", "app:app"]
