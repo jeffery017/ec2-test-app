@@ -1,13 +1,15 @@
 # Step 1: Use an official Ubuntu runtime as a base image
-FROM ubuntu:latest
+FROM ubuntu:20.04
 
 WORKDIR /app
 
 COPY . /app
 
+
 RUN apt-get update && \
     apt-get install -y python3.10 python3-pip git cmake && \
-    apt-get clean
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
 
 # Step 5: Install virtual environment and dependencies
 RUN pip install -r requirements.txt
