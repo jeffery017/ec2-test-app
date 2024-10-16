@@ -19,5 +19,5 @@ RUN apt-get update && \
 # Step 3: Expose port 8000
 EXPOSE 8000
 
-# Step 4: Set the command to run the application
-CMD ["gunicorn", "--bind", "0.0.0.0:8000", "run:app"]
+# Step 4: Use the full path to gunicorn if necessary
+CMD ["python", "-m", "gunicorn", "--bind", "0.0.0.0:8000", "run:app"]
