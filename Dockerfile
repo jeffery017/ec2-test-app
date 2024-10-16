@@ -8,13 +8,8 @@ WORKDIR /app
 COPY . /app
 
 # Step 2: Install dependencies
-RUN apt-get update && \
-    apt-get install -y --no-install-recommends gcc && \
-    pip install --no-cache-dir -r requirements.txt && \
-    apt-get remove --purge -y gcc && \
-    apt-get autoremove -y && \
-    apt-get clean && \
-    rm -rf /var/lib/apt/lists/*
+RUN apt-get update && \ 
+    pip install -r requirements.txt
 
 # Step 3: Expose port 8000
 EXPOSE 8000
