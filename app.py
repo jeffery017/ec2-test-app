@@ -34,6 +34,10 @@ def generate_sample_items(num_items: int):
 generate_sample_items(10)
 
 
+@app.get("/")
+def index():
+    return "Hello world"
+
 @app.post("/items/", response_model=Item)
 def create_item(item: Item):
     # Check if item already exists
@@ -71,4 +75,4 @@ def delete_item(item_id: int):
 
 # Run the application with: uvicorn app:app --reload
 if __name__ == "__main__":  
-    uvicorn.run(app, host="0.0.0.0", port=8012)
+    uvicorn.run(app, host="0.0.0.0", port=8000)
