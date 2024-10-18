@@ -1,15 +1,19 @@
-import random
-from fastapi import FastAPI, HTTPException
-from pydantic import BaseModel
-from typing import List
-import uvicorn
+from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
 
-@app.get("/")
-def index():
-    return "Hello world" 
- 
 
-if __name__ == "__main__":  
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+
+origins = ["*"]
+app.add_middleware(
+ CORSMiddleware,
+ allow_origins=origins,
+ allow_credentials=True,
+ allow_methods=["*"],
+ allow_headers=["*"],
+)
+
+@app.get("/api/test")
+async def test():
+ return "Hello World!"
